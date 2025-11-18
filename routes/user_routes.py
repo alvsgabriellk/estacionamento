@@ -17,3 +17,12 @@ def cadastro():
 
     #opcional
     matricula2 = dados.get("matricula2")
+
+    
+    #todos dados obrigatórios
+    if not all([nome, sobrenome, email, senha, cpf, matricula1]):
+        return jsonify({"erro": "Preencha todos os campos obrigatórios."})
+    
+    cadastro_usuario(nome, sobrenome, email, cpf, matricula1, matricula2)
+
+    return jsonify({"msg": "Usuário cadastrado com sucesso!"}), 201
