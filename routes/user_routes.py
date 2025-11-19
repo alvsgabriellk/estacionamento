@@ -11,18 +11,19 @@ def cadastro():
     nome = dados.get("nome")
     sobrenome = dados.get("sobrenome")
     email = dados.get("email")
-    senha = dados.get("senha")
+    senha_hash = dados.get("senha_hash")
     cpf = dados.get("cpf")
-    matricula1 = dados.get("matricula1")
+    matricula = dados.get("matricula")
 
     #opcional
-    matricula2 = dados.get("matricula2")
+    #matricula2 = dados.get("matricula2")
 
     
     #todos dados obrigatórios
-    if not all([nome, sobrenome, email, senha, cpf, matricula1]):
+    if not all([nome, sobrenome, email, senha_hash, cpf, matricula]):
         return jsonify({"erro": "Preencha todos os campos obrigatórios."})
     
-    cadastro_usuario(nome, sobrenome, email, cpf, matricula1, matricula2)
+    # salvo no banco
+    cadastro_usuario(nome, sobrenome, email, senha_hash, cpf, matricula)
 
     return jsonify({"msg": "Usuário cadastrado com sucesso!"}), 201

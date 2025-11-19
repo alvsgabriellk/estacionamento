@@ -1,15 +1,15 @@
 from crud.database.connection import get_connection
 
-def cadastro_usuario(nome, sobrenome, email, senha, cpf, matricula1, matricula2=None):
+def cadastro_usuario(nome, sobrenome, email, senha_hash, cpf, matricula):
     conex = get_connection()
     cursor = conex.cursor()
 
     sql = """
-    INSERT INTO usuarios (nome, sobrenome, email, senha, cpf, matricula1, matricula2)
-    VALUES (%s, %s, %s, %s, %s, %s, %s)
+    INSERT INTO usuario (nome, sobrenome, email, senha_hash, cpf, matricula)
+    VALUES (%s, %s, %s, %s, %s, %s)
     """
 
-    cursor.execute(sql, (nome, sobrenome, email, senha, cpf, matricula1, matricula2))
+    cursor.execute(sql, (nome, sobrenome, email, senha_hash, cpf, matricula))
     conex.commit()
     cursor.close()
     conex.close()
