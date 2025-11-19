@@ -27,3 +27,19 @@ def cadastro_usuario(nome, sobrenome, email, senha_hash, cpf, matricula1, matric
     conex.commit()
     cursor.close()
     conex.close()
+
+
+def usuario_login(matricula):
+    conex = get_connection()
+    cursor = conex.cursor()
+
+    sql = """
+    SELECT * FROM usuario where matricula1 = %s OR matricula2 = %s
+    """
+
+    cursor.execute(sql, (matricula, matricula))
+    user = cursor.fetchone()
+
+    cursor.close()
+    conex.close()
+    return user
