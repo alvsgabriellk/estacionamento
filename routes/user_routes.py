@@ -1,8 +1,9 @@
 from flask import Blueprint, request, jsonify
-from models.user_model import cadastro_usuario, validar_matricula
+from models.user_model import cadastro_usuario, validar_matricula, usuario_login
 
 # Blueprint chamado users
 user_bp = Blueprint("users", __name__)
+login_bp = Blueprint("login", __name__)
 
 @user_bp.route("/cadastro", methods=["POST"])
 def cadastro():
@@ -35,3 +36,24 @@ def cadastro():
     cadastro_usuario(nome, sobrenome, email, senha_hash, cpf, matricula1, matricula2)
 
     return jsonify({"msg": "Usuário cadastrado com sucesso!"}), 201
+
+
+@login_bp.route("/login", methods=["POST"])
+def login():
+    dados = request.json
+    matricula = dados.get('matricula')
+    senha = dados.get('senha_hash')
+
+    if not matricula or not senha:
+        return jsonify({"erro": "Envie a matricula e senha!"}), 400
+    
+    usuario = usuario_login(matricula)
+    if not usuario:
+        return jsonify({"erro": "Matrícula não encontrada!"}), 400
+    
+    if usuario["senha"] != senha:
+        return jsonify({"erro": "Senha incorreta!"}), 401
+    
+    return jsonify({"msg": "Login realizado com sucesso."}), 200
+
+
