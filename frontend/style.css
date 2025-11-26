@@ -1,0 +1,88 @@
+:root {
+    --cor-primaria: #003366;
+    --cor-secundaria: #C8102E;
+    --cor-marca-primaria: #FFD700;
+    --cor-texto-principal: #212529;
+    --cor-texto-sobre-amarelo: #003366;
+    --cor-borda: #ced4da;
+    --cor-fundo-tela: #e9ecef;
+    --cor-fundo-container: #ffffff;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--cor-fundo-tela);
+    margin: 0; padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+.screen-container {
+    width: 375px; min-height: 667px;
+    background-color: var(--cor-fundo-container);
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    overflow: hidden;
+    display: none;
+    flex-direction: column;
+}
+
+.screen-container.active { display: flex; }
+
+.header {
+    padding: 1.25rem;
+    text-align: center;
+    background-color: var(--cor-marca-primaria);
+    position: relative;
+}
+.header-logo {
+    font-weight: 700;
+    font-size: 1.25rem;
+    color: var(--cor-texto-sobre-amarelo);
+}
+.header-back-button {
+    position: absolute; left: 1.25rem; top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.75rem;
+    color: var(--cor-texto-sobre-amarelo);
+    text-decoration: none; font-weight: 700;
+}
+
+.content {
+    padding: 1.5rem;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.form-group { margin-bottom: 1rem; }
+
+.input-field {
+    width: 100%; padding: 0.85rem; font-size: 1rem;
+    border: 1px solid var(--cor-borda); border-radius: 8px;
+    box-sizing: border-box;
+    appearance: none; background: #fff;
+}
+
+.btn {
+    display: block; width: 100%; padding: 0.85rem;
+    font-size: 1rem; font-weight: 600; text-align: center;
+    text-decoration: none; border: none; border-radius: 8px;
+    cursor: pointer; box-sizing: border-box; margin-bottom: 0.75rem;
+}
+.btn-primary { background-color: var(--cor-primaria); color: white; }
+.btn-secondary { background-color: var(--cor-secundaria); color: white; }
+
+.btn-selection {
+    background-color: var(--cor-primaria);
+    color: white;
+    padding: 1.5rem; font-size: 1.15rem;
+}
+
+.section-title {
+    font-size: 1.2rem; font-weight: 600;
+    color: var(--cor-texto-principal);
+    margin-bottom: 1.5rem; text-align: left;
+}
