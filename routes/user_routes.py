@@ -40,9 +40,9 @@ def cadastro():
 
 @login_bp.route("/login", methods=["POST"])
 def login():
-    dados = request.json
+    dados = request.get_json()
     matricula = dados.get('matricula')
-    senha = dados.get('senha_hash')
+    senha = dados.get('senha')
 
     if not matricula or not senha:
         return jsonify({"erro": "Envie a matricula e senha!"}), 400
