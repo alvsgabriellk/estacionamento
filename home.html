@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Philipeia</title>
+    <link href="style2.css" rel="stylesheet">
+</head>
+<body class="home-body">
+    <!-- Menu Hambúrguer -->
+    <button class="hamburger-menu" id="hamburgerMenu" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Overlay -->
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+    <!-- Sidebar -->
+    <nav class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="cadastroPedido.html" class="sidebar-link">Cadastrar pedido</a></li>
+            <li><a href="#" class="sidebar-link" onclick="showPlaceholder('Histórico de pedidos'); return false;">Histórico de pedidos</a></li>
+            <li><a href="#" class="sidebar-link" onclick="showPlaceholder('Modificar pedido'); return false;">Modificar pedido</a></li>
+            <li><a href="#" class="sidebar-link" onclick="showPlaceholder('Agenda'); return false;">Agenda</a></li>
+        </ul>
+    </nav>
+
+    <!-- Conteúdo Principal -->
+    <main class="home-main">
+        <img src="img/logo.png" alt="Logo Philipeia" class="home-logo">
+    </main>
+
+    <script src="home.js"></script>
+</body>
+</html>
+

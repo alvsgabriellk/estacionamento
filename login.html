@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginPhilipeia</title>
+    <link href="style2.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <main class="forma">
+        <form>
+            <img src="img\logo.png"
+                 alt="Logo Philipeia"
+                 class="logo">
+
+            <h1 class="titulo">Philipeia - Interno</h1>
+
+            <div class="form-field email">
+                <label for="email">Email</label>
+                <input type="email" class="input-field" id="email" placeholder="nome@email.com">
+            </div>
+
+            <div class="form-field senha">
+                <label for="senha">Senha</label>
+                <input type="password" class="input-field" id="senha" placeholder="Senha">
+            </div>
+
+            <div class="lembrar">
+                <input class="checkbox" type="checkbox" id="lembrar">
+                <label for="lembrar">Lembrar-me</label>
+            </div>
+
+            <button onclick="login()" type="button" id="botaologin" class="botaologin">Entrar</button>
+
+            <div class="retorno">
+            <a href="index.html"> Retornar as escolhas </a>
+            </div>
+                <p class="footer-text">© 2025 - Emmanuel, Gabriel, Julia, Marcela.</p>
+        </form>
+    </main>
+
+    <script src="javascript.js"></script>
+    <script src="login.js"></script>
+</body>
+</html>
