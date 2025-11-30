@@ -6,82 +6,20 @@
     <title>Estacionamento UNINASSAU</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
-
-    <!-- TELA 1 — VÍNCULO -->
-    <div class="screen-container active" id="tela-vinculo">
-        <div class="header">
-            <div class="header-logo">Estacionamento UNINASSAU</div>
-        </div>
-        <div class="content">
-            <h2 class="section-title">Olá, qual seu vínculo?</h2>
-
-            <p>Eu sou</p>
-            <button class="btn-selection" onclick="abrir('tela-funcionario')">Funcionário(a)</button>
-
-            <p style="margin-top: 2rem;">Eu sou</p>
-            <button class="btn-selection" onclick="abrir('tela-aluno')">Aluno(a)</button>
-        </div>
-    </div>
-
-    <!-- TELA 2 — FUNCIONÁRIO -->
-    <div class="screen-container" id="tela-funcionario">
-        <div class="header">
-            <a class="header-back-button" onclick="abrir('tela-vinculo')">&larr;</a>
-            <div class="header-logo">Estacionamento UNINASSAU</div>
-        </div>
-
-        <div class="content">
-            <h2 class="section-title">Cadastro: Funcionário</h2>
-
-            <div class="form-group"><input type="text" class="input-field" placeholder="Nome"></div>
-            <div class="form-group"><input type="text" class="input-field" placeholder="Sobrenome"></div>
-            <div class="form-group"><input type="text" class="input-field" placeholder="CPF"></div>
-            <div class="form-group"><input type="email" class="input-field" placeholder="E-mail"></div>
-            <div class="form-group"><input type="password" class="input-field" placeholder="Senha"></div>
-
-            <div class="form-group">
-                <select class="input-field">
-                    <option value="">Selecione...</option>
-                    <option value="professor">Professor</option>
-                    <option value="porteiro">Porteiro</option>
-                    <option value="outro">Outro Cargo 1</option>
-                    <option value="outro2">Outro Cargo 2</option>
-                </select>
+<body class="home-body">
+    <div class="home-container">
+        <div class="home-banner">
+            <img src="uninassau-logo.png" alt="UNINASSAU Logo" class="home-logo">
+            <div class="home-banner-text">
+                <div class="home-banner-title">Estacionamento</div>
+                <div class="home-banner-subtitle">UNINASSAU</div>
             </div>
+        </div>
 
-            <button class="btn-primary btn">Confirma</button>
-            <button class="btn-secondary btn" onclick="abrir('tela-vinculo')">Cancela</button>
+        <div class="home-buttons">
+            <a href="login.html" class="btn-home btn-home-login">Login</a>
+            <a href="vinculo.html" class="btn-home btn-home-cadastro">Cadastro</a>
         </div>
     </div>
-
-    <!-- TELA 3 — ALUNO -->
-    <div class="screen-container" id="tela-aluno">
-        <div class="header">
-            <a class="header-back-button" onclick="abrir('tela-vinculo')">&larr;</a>
-            <div class="header-logo">Estacionamento UNINASSAU</div>
-        </div>
-
-        <div class="content">
-            <h2 class="section-title">Cadastro: Aluno</h2>
-
-            <div class="form-group"><input type="text" class="input-field" placeholder="Nome"></div>
-            <div class="form-group"><input type="text" class="input-field" placeholder="Sobrenome"></div>
-            <div class="form-group"><input type="text" class="input-field" placeholder="Matrícula"></div>
-            <div class="form-group"><input type="email" class="input-field" placeholder="E-mail"></div>
-            <div class="form-group"><input type="password" class="input-field" placeholder="Senha"></div>
-
-            <button class="btn-primary btn">Confirma</button>
-            <button class="btn-secondary btn" onclick="abrir('tela-vinculo')">Cancela</button>
-        </div>
-    </div>
-
-    <script>
-        function abrir(tela) {
-            document.querySelectorAll('.screen-container').forEach(t => t.classList.remove('active'));
-            document.getElementById(tela).classList.add('active');
-        }
-    </script>
-
 </body>
 </html>
