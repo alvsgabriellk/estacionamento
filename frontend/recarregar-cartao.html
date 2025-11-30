@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recarregar Cartão - Estacionamento UNINASSAU</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="screen-container">
+        <div class="header">
+            <a href="cartao-recarga.html" class="header-back-button">&larr;</a>
+            <div class="header-left">
+                <img src="uninassau-logo.png" alt="Logo UNINASSAU" class="header-logo-img">
+                <div class="header-logo-text">Estacionamento UNINASSAU</div>
+            </div>
+            <div class="header-right">
+                <span class="header-icon">🔔</span>
+                <span class="header-icon">👤</span>
+            </div>
+        </div>
+
+        <div class="content">
+            <h2 class="section-title">Cartão e Recarga</h2>
+
+            <div class="search-bar-container">
+                <input type="text" class="search-bar" placeholder="Pesquise aqui...">
+                <span class="search-icon">🔍</span>
+            </div>
+
+            <div class="recharge-section">
+                <h3 class="card-section-title">Recarregar cartão</h3>
+                
+                <div class="user-recharge-info">
+                    <p class="card-type">Funcionário / Aluno</p>
+                    <p class="card-discount">Desconto ativo: 50%</p>
+                    <p class="balance-label">Saldo atual: <span class="balance-value">R$99,99</span></p>
+                </div>
+
+                <div class="form-group">
+                    <label class="input-label" for="recharge-value">Qual valor deseja carregar?</label>
+                    <input 
+                        type="text" 
+                        id="recharge-value" 
+                        class="input-field recharge-input" 
+                        placeholder="Digite o valor aqui..."
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="payment-methods">
+                    <label class="input-label">Forma de pagamento:</label>
+                    <div class="payment-option">
+                        <input type="radio" name="payment-method" id="payment-visa" value="visa" class="payment-radio">
+                        <label for="payment-visa" class="payment-label">
+                            <span class="payment-checkbox"></span>
+                            <span class="payment-text">VISA Crédito ou débito</span>
+                            <span class="payment-logo">💳</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" name="payment-method" id="payment-pix" value="pix" class="payment-radio">
+                        <label for="payment-pix" class="payment-label">
+                            <span class="payment-checkbox"></span>
+                            <span class="payment-text">PIX</span>
+                            <span class="payment-logo">🏦</span>
+                        </label>
+                    </div>
+                    <div class="payment-option">
+                        <input type="radio" name="payment-method" id="payment-boleto" value="boleto" class="payment-radio">
+                        <label for="payment-boleto" class="payment-label">
+                            <span class="payment-checkbox"></span>
+                            <span class="payment-text">Boleto Bancário</span>
+                            <span class="payment-logo">📄</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button id="btn-continue" class="btn btn-continue btn-disabled" disabled>
+                    Continuar
+                </button>
+            </div>
+        </div>
+
+        <div class="bottom-nav">
+            <div class="nav-icon">📄</div>
+            <div class="nav-icon">🏠</div>
+            <div class="nav-icon active">💵</div>
+            <div class="nav-icon">🎫</div>
+        </div>
+    </div>
+
+    <script>
+        const rechargeInput = document.getElementById('recharge-value');
+        const paymentRadios = document.querySelectorAll('.payment-radio');
+        const btnContinue = document.getElementById('btn-continue');
+
+        // Formatação do valor monetário
+        rechargeInput.addEventListener('input', function(e) {
+            let value = e.target.value.replace(/\D/g, '');
+            if (value) {
+                value = (parseInt(value) / 100).toFixed(2);
+                value = value.replace('.', ',');
+                value = value.replace(/\B(?=(\d{3})+(?!\d))/g, '.');
+                e.target.value = 'R$ ' + value;
+            } else {
+                e.target.value = '';
+            }
+            validateForm();
+        });
+
+        // Validação ao selecionar método de pagamento
+        paymentRadios.forEach(radio => {
+            radio.addEventListener('change', validateForm);
+        });
+
+        // Validação do formulário
+        function validateForm() {
+            const hasValue = rechargeInput.value.trim() !== '';
+            const hasPaymentMethod = document.querySelector('.payment-radio:checked') !== null;
+
+            if (hasValue && hasPaymentMethod) {
+                btnContinue.disabled = false;
+                btnContinue.classList.remove('btn-disabled');
+            } else {
+                btnContinue.disabled = true;
+                btnContinue.classList.add('btn-disabled');
+            }
+        }
+
+        // Redirecionamento ao clicar em Continuar
+        btnContinue.addEventListener('click', function() {
+            if (!this.disabled) {
+                const selectedPayment = document.querySelector('.payment-radio:checked').value;
+                const rechargeValue = rechargeInput.value;
+                // Salvar valores no sessionStorage para usar na tela de sucesso
+                sessionStorage.setItem('rechargeValue', rechargeValue);
+                sessionStorage.setItem('paymentMethod', selectedPayment);
+                window.location.href = 'recarregar-cartao-sucesso.html';
+            }
+        });
+    </script>
+
+</body>
+</html>
+
