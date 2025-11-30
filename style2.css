@@ -38,12 +38,19 @@ body {
     margin-bottom: 14px;
     text-align: left;
 }
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 14px;
+}
 .form-field label {
     color: #fff;
     display: block;
     margin-bottom: 6px;
     font-size: 0.95rem;
 }
+
 .form-field .input-field {
     width: 100%;
     padding: 10px 12px;
@@ -58,6 +65,30 @@ body {
     outline: none;
     border-color: #5b8cff;
     box-shadow: 0 0 6px rgba(91,140,255,0.12);
+}
+.style-group {
+    border: 1px solid #222;
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 16px;
+    background-color: #151515;
+}
+.style-group legend {
+    color: #f9fafc;
+    padding: 0 6px;
+    font-size: 0.95rem;
+}
+.style-subfield {
+    margin-bottom: 12px;
+}
+.style-subfield:last-of-type {
+    margin-bottom: 0;
+}
+.style-subfield label {
+    color: #fff;
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.9rem;
 }
 .form-field .lembrar {
     display: flex;
@@ -97,7 +128,7 @@ body {
     width: 100%;
     padding: 10px 12px;
     border-radius: 8px;
-   border: 1px solid #333;
+    border: 1px solid #333;
     background-color: #222;
     color: #fff;
     cursor: pointer;
@@ -144,7 +175,6 @@ body {
     text-align: center;
 }
 
-/* Home Page Styles */
 .home-body {
     background-color: #000;
     min-height: 100vh;
@@ -169,7 +199,6 @@ body {
     height: auto;
 }
 
-/* Menu Hambúrguer */
 .hamburger-menu {
     position: fixed;
     top: 20px;
@@ -182,8 +211,8 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    width: 30px;
-    height: 30px;
+    width: 50px;
+    height: 50px;
     transition: transform 0.3s ease;
 }
 
@@ -211,7 +240,6 @@ body {
     transform: rotate(-45deg) translate(7px, -7px);
 }
 
-/* Sidebar Overlay */
 .sidebar-overlay {
     position: fixed;
     top: 0;
@@ -230,7 +258,6 @@ body {
     visibility: visible;
 }
 
-/* Sidebar */
 .sidebar {
     position: fixed;
     top: 0;
@@ -275,3 +302,69 @@ body {
 .sidebar-link:active {
     background-color: #333;
 }
+
+
+/*adições na home <3 */
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f9;
+}
+
+.pie-chart-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px;
+    font-family: Arial, sans-serif;
+}
+
+.chart-title {
+    font-size: 28px;
+    color: #ffffff;
+    margin-bottom: 25px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.pie-chart {
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background: conic-gradient(
+        #00b478 0% 40%, 
+        #00583b 40% 65%, 
+        #00ffaa 65% 100% 
+    );
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+.legend {
+    margin-top: 40px;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    margin-right: 12px;
+    border-radius: 3px;
+    flex-shrink: 0; 
+}
+
+.legend-text {
+    font-size: 15px;
+    color: #555;
+}
+.color-1 { background-color: #00ffaa; }
+.color-2 { background-color: #00b478; }
+.color-3 { background-color: #00583b; }

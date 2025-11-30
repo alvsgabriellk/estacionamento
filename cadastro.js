@@ -12,7 +12,7 @@ function cadastro(){
         alert('Por favor, informe o email.');
         return;
     }
-    if(senha.length <= 6){
+    if(senha.length <= 4){
         alert('A senha deve ter mais de 6 caracteres.');
         return;
     }

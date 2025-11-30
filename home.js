@@ -18,12 +18,11 @@ function closeSidebar() {
     hamburger.classList.remove('active');
 }
 
-function showPlaceholder(option) {
-    alert(`${option} - Esta funcionalidade estará disponível em breve.`);
+function logout() {
     closeSidebar();
+    window.location.href = 'login.html';
 }
 
-// Fechar sidebar ao pressionar ESC
 document.addEventListener('keydown', function(event) {
     if (event.key === 'Escape') {
         closeSidebar();
