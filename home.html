@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home - Philipeia</title>
+    <link href="style2.css" rel="stylesheet">
+</head>
+<body class="home-body">
+
+    <button class="hamburger-menu" id="hamburgerMenu" title="clickMenu" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeSidebar()"></div>
+
+    <nav class="sidebar" id="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="cadastroPedido.html" class="sidebar-link">Cadastrar pedido</a></li>
+            <li><a href="#" class="sidebar-link" onclick="return false;" aria-disabled="true">Histórico de pedidos</a></li>
+            <li><a href="#" class="sidebar-link" onclick="return false;" aria-disabled="true">Modificar pedido</a></li>
+            <li><a href="#" class="sidebar-link" onclick="return false;" aria-disabled="true">Agenda</a></li>
+            <li><a href="#" class="sidebar-link" onclick="logout(); return false;">Logout</a></li>
+        </ul>
+    </nav>
+
+    <main class="home-main">
+        <img src="img/logo.png" alt="Logo Philipeia" class="home-logo">
+
+    <div class="pie-chart-container">
+        
+        <h1 class="chart-title">GRÁFICO DE GERENCIAMENTO</h1>
+        
+        <div class="pie-chart"></div>
+
+        <div class="legend">
+            <div class="legend-item">
+                <div class="legend-color color-1"></div>
+                <div class="legend-text">
+                    40% - NOVOS PEDIDOS CADASTRADOS
+                </div>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color color-2"></div>
+                <div class="legend-text">
+                    25% - PEDIDOS EM PRODUÇÃO
+                </div>
+            </div>
+
+            <div class="legend-item">
+                <div class="legend-color color-3"></div>
+                <div class="legend-text">
+                    35% - PEDIDOS EM PROCESSO DE ENTREGA
+                </div>
+            </div>
+        </div>
+    </div>
+    </main>
+   
+    <script src="home.js"></script>
+</body>
+
+</html>
+
